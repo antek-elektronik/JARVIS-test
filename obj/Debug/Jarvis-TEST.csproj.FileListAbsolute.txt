@@ -1,0 +1,9 @@
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis-TEST.csprojAssemblyReference.cache
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis_TEST.Properties.Resources.resources
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis-TEST.csproj.GenerateResource.cache
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis-TEST.csproj.CoreCompileInputs.cache
+C:\Users\arin\cos\repo\Jarvis-TEST\bin\Debug\Jarvis-TEST.exe.config
+C:\Users\arin\cos\repo\Jarvis-TEST\bin\Debug\Jarvis-TEST.exe
+C:\Users\arin\cos\repo\Jarvis-TEST\bin\Debug\Jarvis-TEST.pdb
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis-TEST.exe
+C:\Users\arin\cos\repo\Jarvis-TEST\obj\Debug\Jarvis-TEST.pdb
