@@ -87,7 +87,8 @@ namespace speech_recognition_test_2
                     "play pause",
                     "next",
                     "previous",
-                    "reset"
+                    "reset",
+                    "show commands"
                 };
 
                 File.WriteAllLines("dictionary.txt",DictionaryData);
