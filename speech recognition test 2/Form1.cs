@@ -12,6 +12,8 @@ using System.Speech.Recognition;
 using System.Speech.AudioFormat;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace speech_recognition_test_2
 {
@@ -43,7 +45,7 @@ namespace speech_recognition_test_2
 
         //po prostu tworzymy obiekty
         SpeechRecognitionEngine Sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")); //rozpoznaje mowę jak wywołasz jarvisa
-        SpeechRecognitionEngine SreAsleep = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")); //rozpoznaje mowęjak jarvis jest uśpiony
+        SpeechRecognitionEngine SreAsleep = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")); //rozpoznaje mowę jak jarvis jest uśpiony
 
         SpeechSynthesizer synth = new SpeechSynthesizer(); //syntezator mowy
 
@@ -509,42 +511,52 @@ namespace speech_recognition_test_2
 
         private void introduction()
         {
-            System.Threading.Thread.Sleep(2000);
-            listBox1.Items.Add(">> Good Morning, User!");
-            listBox1.Update();
-            synth.Speak("Good Morning User!");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> My name is J.A.R.V.I.S (Just A Rather Very Intelligent System)");
-            listBox1.Update();
-            synth.Speak("My name is jarvis , Just A Rather Very Intelligent System");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> Every time you open me, I will be in sleeping mode.");
-            listBox1.Update();
-            synth.Speak("Every time you open me, I will be in sleeping mode.");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> To wake me up, say my name.");
-            listBox1.Update();
-            synth.Speak("To wake me up, say my name.");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> To get all commands you can use, just say \"show commands\" and everything will appear on screen! ");
-            listBox1.Update();
-            synth.Speak("To get all commands you can use, just say \"show commands\" and everything will appear on screen! ");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> Warning:");
-            listBox1.Items.Add(">> This is not a full version of the software, it could have some bugs.");
-            listBox1.Update();
-            synth.Speak("Warning!");
-            System.Threading.Thread.Sleep(500);
-            synth.Speak("This is not a full version of the software, it could have some bugs.");
-            System.Threading.Thread.Sleep(1000);
-            listBox1.Items.Add(">> Everything wrong please report on discord or social media");
-            listBox1.Update();
-            synth.Speak("Everything wrong please report on discord or social media");
-            System.Threading.Thread.Sleep(1000);
+            Thread.CurrentThread.Name = "Main"; // zmiana aktualnego zadania na Main
 
-            listBox1.Items.Add(">> Have Fun!");
-            listBox1.Update();
-            synth.Speak("Have Fun!");
+            Task task = new Task(() => {
+                System.Threading.Thread.Sleep(2000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Good Morning, User!")));
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("Good Morning User!");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> My name is J.A.R.V.I.S (Just A Rather Very Intelligent System)")));
+
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("My name is jarvis , Just A Rather Very Intelligent System");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Every time you open me, I will be in sleeping mode.")));
+
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("Every time you open me, I will be in sleeping mode.");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> To wake me up, say my name.")));
+
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("To wake me up, say my name.");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> To get all commands you can use, just say \"show commands\" and everything will appear on screen! ")));
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("To get all commands you can use, just say \"show commands\" and everything will appear on screen! ");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Warning:")));
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> This is not a full version of the software, it could have some bugs.")));
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("Warning!");
+                System.Threading.Thread.Sleep(500);
+                synth.Speak("This is not a full version of the software, it could have some bugs.");
+                System.Threading.Thread.Sleep(1000);
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Everything wrong please report on discord or social media")));
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("Everything wrong please report on discord or social media");
+                System.Threading.Thread.Sleep(1000);
+
+                listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Have Fun!")));
+                listBox1.Invoke(new Action(() => listBox1.Update()));
+                synth.Speak("Have Fun!");
+            });
+
+            // Start osobnego zadania asynchronicznego
+            task.Start();
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
@@ -554,6 +566,11 @@ namespace speech_recognition_test_2
                 UpDatePreferences("0", 1);
                 introduction();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

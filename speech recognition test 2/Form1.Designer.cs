@@ -36,15 +36,15 @@ namespace speech_recognition_test_2
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.Animation = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -57,13 +57,13 @@ namespace speech_recognition_test_2
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 46;
+            this.listBox1.ItemHeight = 31;
             this.listBox1.Items.AddRange(new object[] {
             " "});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1408, 632);
+            this.listBox1.Size = new System.Drawing.Size(939, 409);
             this.listBox1.TabIndex = 0;
             // 
             // timer1
@@ -78,10 +78,10 @@ namespace speech_recognition_test_2
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.checkBox1.Location = new System.Drawing.Point(0, 719);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkBox1.Location = new System.Drawing.Point(0, 466);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(1408, 24);
+            this.checkBox1.Size = new System.Drawing.Size(939, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Auto scroll";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -102,10 +102,36 @@ namespace speech_recognition_test_2
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1408, 87);
+            this.panel1.Size = new System.Drawing.Size(939, 57);
             this.panel1.TabIndex = 3;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.Location = new System.Drawing.Point(36, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 47);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Jarvis 0.1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::speech_recognition_test_2.Properties.Resources.jarvis1logo;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(36, 47);
+            this.panel4.TabIndex = 4;
             // 
             // button4
             // 
@@ -115,9 +141,10 @@ namespace speech_recognition_test_2
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button4.Location = new System.Drawing.Point(1198, 0);
+            this.button4.Location = new System.Drawing.Point(800, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 71);
+            this.button4.Size = new System.Drawing.Size(49, 47);
             this.button4.TabIndex = 3;
             this.button4.Text = "_";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -135,9 +162,10 @@ namespace speech_recognition_test_2
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button3.Location = new System.Drawing.Point(1272, 0);
+            this.button3.Location = new System.Drawing.Point(849, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 71);
+            this.button3.Size = new System.Drawing.Size(45, 47);
             this.button3.TabIndex = 2;
             this.button3.Text = "□";
             this.button3.UseCompatibleTextRendering = true;
@@ -154,9 +182,10 @@ namespace speech_recognition_test_2
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button2.Location = new System.Drawing.Point(1340, 0);
+            this.button2.Location = new System.Drawing.Point(894, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 71);
+            this.button2.Size = new System.Drawing.Size(45, 47);
             this.button2.TabIndex = 1;
             this.button2.Text = "x";
             this.button2.UseCompatibleTextRendering = true;
@@ -169,9 +198,10 @@ namespace speech_recognition_test_2
             // 
             this.panel2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 71);
+            this.panel2.Location = new System.Drawing.Point(0, 47);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1408, 16);
+            this.panel2.Size = new System.Drawing.Size(939, 10);
             this.panel2.TabIndex = 0;
             // 
             // panel3
@@ -179,9 +209,10 @@ namespace speech_recognition_test_2
             this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Controls.Add(this.listBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 87);
+            this.panel3.Location = new System.Drawing.Point(0, 57);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1408, 632);
+            this.panel3.Size = new System.Drawing.Size(939, 409);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -190,54 +221,32 @@ namespace speech_recognition_test_2
             this.MainTimer.Interval = 1000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
             // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::speech_recognition_test_2.Properties.Resources.jarvis1logo;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(54, 71);
-            this.panel4.TabIndex = 4;
-            // 
             // button1
             // 
             this.button1.BackgroundImage = global::speech_recognition_test_2.Properties.Resources.frame1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 743);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(0, 483);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1408, 101);
+            this.button1.Size = new System.Drawing.Size(939, 66);
             this.button1.TabIndex = 1;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label1.Location = new System.Drawing.Point(54, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 71);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Jarvis 0.1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 844);
+            this.ClientSize = new System.Drawing.Size(939, 549);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Jarvis 0.1";
