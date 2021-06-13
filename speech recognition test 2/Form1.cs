@@ -514,41 +514,41 @@ namespace speech_recognition_test_2
             Thread.CurrentThread.Name = "Main"; // zmiana aktualnego zadania na Main
 
             Task task = new Task(() => {
-                System.Threading.Thread.Sleep(2000);
+                Thread.Sleep(2000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Good Morning, User!")));
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("Good Morning User!");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> My name is J.A.R.V.I.S (Just A Rather Very Intelligent System)")));
 
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("My name is jarvis , Just A Rather Very Intelligent System");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Every time you open me, I will be in sleeping mode.")));
 
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("Every time you open me, I will be in sleeping mode.");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> To wake me up, say my name.")));
 
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("To wake me up, say my name.");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> To get all commands you can use, just say \"show commands\" and everything will appear on screen! ")));
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("To get all commands you can use, just say \"show commands\" and everything will appear on screen! ");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Warning:")));
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> This is not a full version of the software, it could have some bugs.")));
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("Warning!");
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 synth.Speak("This is not a full version of the software, it could have some bugs.");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Everything wrong please report on discord or social media")));
                 listBox1.Invoke(new Action(() => listBox1.Update()));
                 synth.Speak("Everything wrong please report on discord or social media");
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
                 listBox1.Invoke(new Action(() => listBox1.Items.Add(">> Have Fun!")));
                 listBox1.Invoke(new Action(() => listBox1.Update()));
