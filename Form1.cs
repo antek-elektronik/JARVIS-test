@@ -21,7 +21,7 @@ namespace speech_recognition_test_2
 
         SpeechSynthesizer synth = new SpeechSynthesizer();
 
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -32,11 +32,11 @@ namespace speech_recognition_test_2
             //test();
             timer1.Start();
 
-            Console.WriteLine("recognizable words: \n\n\n" + "never gonna give you up\ndon't stop me now\nhello\nhello computer\nstop listening\nclear\nclear screen\nstop application\nend");
-            Console.WriteLine("jarvis\nhi");
+            Console.WriteLine("recognizable words: \n\n\n" + File.ReadAllText(@"dictionary.txt"));
+            Console.WriteLine(File.ReadAllText(@"AsleepDictionary.txt"));
 
-            GrammarBuilder Gb = new GrammarBuilder(new Choices("never gonna give you up\ndon't stop me now\nhello\nhello computer\nstop listening\nclear\nclear screen\nstop application\nend"));
-            GrammarBuilder GbAsleep = new GrammarBuilder(new Choices("jarvis\nhi"));
+            GrammarBuilder Gb = new GrammarBuilder(new Choices(File.ReadAllLines(@"dictionary.txt")));
+            GrammarBuilder GbAsleep = new GrammarBuilder(new Choices(File.ReadAllLines(@"AsleepDictionary.txt")));
 
             Gb.Culture = new System.Globalization.CultureInfo("en-US");
             GbAsleep.Culture = new System.Globalization.CultureInfo("en-US");
