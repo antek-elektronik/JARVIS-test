@@ -172,35 +172,37 @@ namespace speech_recognition_test_2
         {
             string text = e.Result.Text;
 
-            switch (text)
+            string[] CommandsFromFile = File.ReadAllLines(@"dictionary.txt");
+            int pos = Array.IndexOf(CommandsFromFile, text);
+            if (pos > -1)
+            {
+                listBox1.Items.Add("<< " + text);
+            }
+
+
+                switch (text)
             {
                 case "hello computer":
-                    listBox1.Items.Add("<< hello computer");
                     listBox1.Items.Add(">> hello user");
-
                     synth.SpeakAsync("hello user!");
                     break;
 
                 case "hello":
-                    listBox1.Items.Add("<< hello");
                     listBox1.Items.Add(">> hello!");
                     synth.SpeakAsync("hello!");
                     break;
                 case "never gonna give you up":      //klasyczny rickroll 
                     synth.SpeakAsync("never gonna let you down!");
-                    listBox1.Items.Add("<< never gonna give you up");
                     listBox1.Items.Add(">> never gonna let you down!");
                     System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                     break;
                 case "don't stop me now":           //po porsu lubię tę piosenkę, więc czemu nie?
                     synth.SpeakAsync("i'm having such a good time");
-                    listBox1.Items.Add("<< don't stop me now");
                     listBox1.Items.Add(">> i'm having such a good time!");
                     System.Diagnostics.Process.Start("https://youtu.be/HgzGwKwLmgM?t=37");
                     break;
                 case "stop listening":
                     synth.SpeakAsync("Ok, just say J A R V I S if you want to wake me up");
-                    listBox1.Items.Add("<< stop listening");
                     listBox1.Items.Add(">> Ok, just say J.A.R.V.I.S if you want to wake me up");
 
                     Sre.RecognizeAsyncStop();
@@ -213,7 +215,6 @@ namespace speech_recognition_test_2
                     break;
                 case "stop application":
                 case "end":
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> goodbye!");
                     synth.Speak("Goodbye!");
                     Application.Exit();
@@ -267,8 +268,6 @@ namespace speech_recognition_test_2
                 #endregion
 
                 case "show commands":
-                    string[] CommandsFromFile = File.ReadAllLines(@"dictionary.txt");
-
                     listBox1.Items.Add(">> Available commands:");
 
                     for (int i  = 0; i < CommandsFromFile.Length; i++)
@@ -295,7 +294,6 @@ namespace speech_recognition_test_2
 
                     System.Diagnostics.Process.Start(hot_milf);
                     synth.SpeakAsync("done!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> done!");
                     break;
 
@@ -312,14 +310,12 @@ namespace speech_recognition_test_2
 
                     System.Diagnostics.Process.Start(im_stuck);
                     synth.SpeakAsync("done!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> done!");
                     break;
 
                 case "hot milfs near you":
                     string[] near_you_links = { };
                     synth.SpeakAsync("Function not implemented.");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> Function not implemented.");
                     break;
 
@@ -338,13 +334,11 @@ namespace speech_recognition_test_2
 
                     System.Diagnostics.Process.Start(japanese_scissors);
                     synth.SpeakAsync("done!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> done!");
                     break;
 
                 case "clear my history":
                     synth.SpeakAsync("Function not implemented.");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> Function not implemented.");
                     break;
 
@@ -355,20 +349,17 @@ namespace speech_recognition_test_2
                 case "play pause":
                     keybd_event(VK_MEDIA_PLAY_PAUSE, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
                     synth.SpeakAsync("done!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> done!");
                     break;
 
                 case "next":
                     keybd_event(VK_MEDIA_NEXT_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
                     synth.SpeakAsync("ok!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> ok!");
                     break;
                 case "previous":
                     keybd_event(VK_MEDIA_PREV_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
                     synth.SpeakAsync("ok!");
-                    listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> ok!");
                     break;
                 #endregion
