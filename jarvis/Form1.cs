@@ -88,7 +88,12 @@ namespace speech_recognition_test_2
                     "next",
                     "previous",
                     "reset",
-                    "show commands"
+                    "show commands",
+                    "open hot milf",
+                    "step sister im stuck",
+                    "hot milfs near you",
+                    "japanese scissors",
+                    "clear my history"
                 };
 
                 File.WriteAllLines("dictionary.txt",DictionaryData);
@@ -273,6 +278,78 @@ namespace speech_recognition_test_2
                     synth.SpeakAsync("done!");
 
                     break;
+
+                #region pornhub functions
+
+                case "open hot milf":
+                    string[] hot_milf_links = { 
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5be0cc66abcd8", 
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5be0cc66abcd8", 
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5cc37c614b1fa", 
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5c75b526c629d" 
+                    };
+
+                    Random hot_milf_rand = new Random();
+                    int hot_milf_index = hot_milf_rand.Next(hot_milf_links.Length);
+                    String hot_milf = hot_milf_links[hot_milf_index];
+
+                    System.Diagnostics.Process.Start(hot_milf);
+                    synth.SpeakAsync("done!");
+                    listBox1.Items.Add("<< " + text);
+                    listBox1.Items.Add(">> done!");
+                    break;
+
+                case "step sister im stuck":
+                    string[] im_stuck_links = {
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5f48d30f84acf",
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5d3744e991306",
+                        "https://www.pornhub.com/view_video.php?viewkey=ph606b1f6b4526c"
+                    };
+
+                    Random im_stuck_rand = new Random();
+                    int im_stuck_index = im_stuck_rand.Next(im_stuck_links.Length);
+                    String im_stuck = im_stuck_links[im_stuck_index];
+
+                    System.Diagnostics.Process.Start(im_stuck);
+                    synth.SpeakAsync("done!");
+                    listBox1.Items.Add("<< " + text);
+                    listBox1.Items.Add(">> done!");
+                    break;
+
+                case "hot milfs near you":
+                    string[] near_you_links = { };
+                    synth.SpeakAsync("Function not implemented.");
+                    listBox1.Items.Add("<< " + text);
+                    listBox1.Items.Add(">> Function not implemented.");
+                    break;
+
+                case "japanese scissors":
+                    string[] japanese_scissors_links = {
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5f76447ae7d69",
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5f06eb5b43a33",
+                        "https://www.pornhub.com/view_video.php?viewkey=ph590cb2ac974db",
+                        "https://www.pornhub.com/view_video.php?viewkey=ph5b10497b5910e"
+                    };
+
+
+                    Random japanese_scissors_rand = new Random();
+                    int japanese_scissors_index = japanese_scissors_rand.Next(japanese_scissors_links.Length);
+                    String japanese_scissors = japanese_scissors_links[japanese_scissors_index];
+
+                    System.Diagnostics.Process.Start(japanese_scissors);
+                    synth.SpeakAsync("done!");
+                    listBox1.Items.Add("<< " + text);
+                    listBox1.Items.Add(">> done!");
+                    break;
+
+                case "clear my history":
+                    synth.SpeakAsync("Function not implemented.");
+                    listBox1.Items.Add("<< " + text);
+                    listBox1.Items.Add(">> Function not implemented.");
+                    break;
+
+                #endregion
+
                 #region kontrola dźwięku
 
                 case "play pause":
@@ -578,6 +655,11 @@ namespace speech_recognition_test_2
                 Sre.RecognizeAsync(RecognizeMode.Multiple);
                 WiadomoscPoczatkowa = false;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

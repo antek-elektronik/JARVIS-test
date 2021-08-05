@@ -102,10 +102,11 @@ namespace speech_recognition_test_2
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(939, 57);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // label1
@@ -120,7 +121,6 @@ namespace speech_recognition_test_2
             this.label1.TabIndex = 5;
             this.label1.Text = "Jarvis 0.1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel4
             // 
@@ -128,7 +128,7 @@ namespace speech_recognition_test_2
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(36, 47);
             this.panel4.TabIndex = 4;
@@ -142,7 +142,7 @@ namespace speech_recognition_test_2
             this.button4.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button4.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.button4.Location = new System.Drawing.Point(800, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(49, 47);
             this.button4.TabIndex = 3;
@@ -163,7 +163,7 @@ namespace speech_recognition_test_2
             this.button3.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button3.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.button3.Location = new System.Drawing.Point(849, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(45, 47);
             this.button3.TabIndex = 2;
@@ -183,7 +183,7 @@ namespace speech_recognition_test_2
             this.button2.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button2.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.button2.Location = new System.Drawing.Point(894, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(45, 47);
             this.button2.TabIndex = 1;
@@ -199,7 +199,7 @@ namespace speech_recognition_test_2
             this.panel2.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 47);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 10);
             this.panel2.TabIndex = 0;
@@ -210,7 +210,7 @@ namespace speech_recognition_test_2
             this.panel3.Controls.Add(this.listBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 57);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(939, 409);
             this.panel3.TabIndex = 4;
