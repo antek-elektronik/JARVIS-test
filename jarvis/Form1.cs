@@ -38,17 +38,16 @@ namespace speech_recognition_test_2
         public static extern bool ReleaseCapture();
         #endregion
 
-        //po prostu tworzymy obiekty
-        SpeechRecognitionEngine Sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")); //rozpoznaje mowę jak wywołasz jarvisa
-        SpeechRecognitionEngine SreAsleep = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")); //rozpoznaje mowęjak jarvis jest uśpiony
+        SpeechRecognitionEngine Sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
+        SpeechRecognitionEngine SreAsleep = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
 
-        SpeechSynthesizer synth = new SpeechSynthesizer(); //syntezator mowy
+        SpeechSynthesizer synth = new SpeechSynthesizer();
 
-        private string[] preferencje;
+        private string[] preferences;
         //[0] - webbrowser
         //[1] - wiadomość podczas pierwszego uruchomienia
 
-        bool IntroduceEnd = false; //zmianna to poinformowania że wiadomość na początku już się skończyła
+        bool IntroduceEnd = false;
 
         private int frame = 0;
 
@@ -60,7 +59,6 @@ namespace speech_recognition_test_2
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            //uruchamiamy animację
             Animation.Start();
 
 
@@ -99,42 +97,31 @@ namespace speech_recognition_test_2
                 File.WriteAllText("AsleepDictionary.txt","jarvis\nhi");
             }
 
-            preferencje = PreferenceFilesLoad();
+            preferences = PreferenceFilesLoad();
 
-            //test();
-            timer1.Start(); //auto scroll
+            timer1.Start(); // AutoScroll
 
-            //Console.WriteLine("recognizable words: \n\n\n" + File.ReadAllText(@"dictionary.txt")); //do debugowania
-            //Console.WriteLine(File.ReadAllText(@"AsleepDictionary.txt")); //to też
+            GrammarBuilder Gb = new GrammarBuilder(new Choices(File.ReadAllLines(@"dictionary.txt")));
+            GrammarBuilder GbAsleep = new GrammarBuilder(new Choices(File.ReadAllLines(@"AsleepDictionary.txt")));
 
-            GrammarBuilder Gb = new GrammarBuilder(new Choices(File.ReadAllLines(@"dictionary.txt"))); //wszystkie komendy
-            GrammarBuilder GbAsleep = new GrammarBuilder(new Choices(File.ReadAllLines(@"AsleepDictionary.txt"))); //komendy do wywołania jarvisa
-
-            //z tym miałem spory problem bo mam windowsa po polsku a język polski nie ma rozpoznawania mowy, te dwie linijki naprawiły to :)
             Gb.Culture = new System.Globalization.CultureInfo("en-US");
             GbAsleep.Culture = new System.Globalization.CultureInfo("en-US");
-            //synth.SelectVoice("David");
 
-            //wczytywanie komend
             Sre.LoadGrammar(new Grammar(Gb));
             SreAsleep.LoadGrammar(new Grammar(GbAsleep));
 
-            synth.SelectVoice("Microsoft David Desktop"); //może sprawiać drobne prblemy jak ktoś nie ma zainstalowanego
+            synth.SelectVoice("Microsoft David Desktop");
 
-            //dodawanie eventów kiedy rozposnawanie mowy coś rozpozna
             Sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Sre_SpeechRecognized);
             SreAsleep.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(SreAsleep_SpeechRecognized);
 
-            //ustawianie wejść i wyjścia
             Sre.SetInputToDefaultAudioDevice();
             SreAsleep.SetInputToDefaultAudioDevice();
             synth.SetOutputToDefaultAudioDevice();
 
-            //uruchomienie głównego timera (czas: 1 sekunda)
             MainTimer.Start();
 
-            //tutaj rozpoczyna się słuchanie (zareaguje na słowo "jarvis"), ale jeśli użytkownik jest pierwszy raz to nie zaczne rozpoznawać
-            if (preferencje[1] == "0")
+            if (preferences[1] == "0")
             {
                 SreAsleep.RecognizeAsync(RecognizeMode.Multiple);
             }
@@ -149,18 +136,14 @@ namespace speech_recognition_test_2
                     listBox1.Items.Add("<< jarvis");
                     synth.SpeakAsync("Yes Sir? I'm Listening!");
                     listBox1.Items.Add(">> Yes sir? I'm Listening.");
-                    //MessageBox.Show("YesSir?");
 
                     SreAsleep.RecognizeAsyncStop();
                     Sre.RecognizeAsync(RecognizeMode.Multiple);
                     break;
                 case "hi":
                     synth.SpeakAsync("hi!");
-                    //MessageBox.Show("Hi!");
                     break;
             }
-            
-            //Console.WriteLine(e.Result.Text); //do debugowania
        }
 
        private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
@@ -184,11 +167,11 @@ namespace speech_recognition_test_2
                 case "hello":
                     Say("hello!");
                     break;
-                case "never gonna give you up":      //klasyczny rickroll 
+                case "never gonna give you up":
                     Say("never gonna let you down!");
                     System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                     break;
-                case "don't stop me now":           //po porsu lubię tę piosenkę, więc czemu nie?
+                case "don't stop me now":
                     Say("i'm having such a good time");
                     System.Diagnostics.Process.Start("https://youtu.be/HgzGwKwLmgM?t=37");
                     break;
@@ -213,7 +196,7 @@ namespace speech_recognition_test_2
                     listBox1.Items.Add("<< " + text);
                     listBox1.Items.Add(">> ok");
                     synth.SpeakAsync("ok");
-                    switch (preferencje[0])
+                    switch (preferences[0])
                     {
                         case "chrome":
                             System.Diagnostics.Process.Start("chrome.exe");
@@ -224,7 +207,7 @@ namespace speech_recognition_test_2
                     }
                     break;
                 case "change default web browser to chrome":
-                    if(preferencje[0] == "chrome")
+                    if(preferences[0] == "chrome")
                     {
                         listBox1.Items.Add("<< " + text);
                         listBox1.Items.Add(">> your default web browser is chrome already!");
@@ -235,12 +218,12 @@ namespace speech_recognition_test_2
                         listBox1.Items.Add("<< " + text);
                         listBox1.Items.Add(">> default browser changed sucessfully!");
                         synth.SpeakAsync("default browser changed sucessfully");
-                        UpDatePreferences("chrome", 0);
+                        UpdatePreferences("chrome", 0);
                     }
                     break;
 
                 case "change default web browser to edge":
-                    if (preferencje[0] == "edge")
+                    if (preferences[0] == "edge")
                     {
                         listBox1.Items.Add("<< " + text);
                         listBox1.Items.Add(">> your default web browser is edge already!");
@@ -251,7 +234,7 @@ namespace speech_recognition_test_2
                         listBox1.Items.Add("<< " + text);
                         listBox1.Items.Add(">> default browser changed sucessfully!");
                         synth.SpeakAsync("default browser changed sucessfully");
-                        UpDatePreferences("edge", 0);
+                        UpdatePreferences("edge", 0);
                     }
                     break;
                 #endregion
@@ -352,8 +335,6 @@ namespace speech_recognition_test_2
                     MainTimer.Stop();
                     break;
             }
-
-            //Console.WriteLine(e.Result.Text);
         }
 
 
@@ -368,7 +349,7 @@ namespace speech_recognition_test_2
             Sre.RecognizeAsyncStop();
         }
 
-        //auto scroll
+        // AutoScroll
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
@@ -380,32 +361,31 @@ namespace speech_recognition_test_2
 
         private string[] PreferenceFilesLoad()
         {
-            if (!Directory.Exists(@"JarvisData\")) //tworzenie folderu jeśli nie istnieje
+            if (!Directory.Exists(@"JarvisData\"))
             {
                 Directory.CreateDirectory(@"JarvisData\");
             }
 
-            if (!File.Exists(@"JarvisData\preferences.txt")) //tworzenie pliku jeśli nie istnieje
+            if (!File.Exists(@"JarvisData\preferences.txt"))
             {
                 File.WriteAllText(@"JarvisData\preferences.txt","chrome\n1");
             }
 
-            bool NieMamPomyslu = true;
-            string[] InputFromFile = null;
+            bool waitForLoad = true;
+            string[] fileContent = null;
 
-            while (NieMamPomyslu) //czekanie aż system stworzy plik jeśli nie istnieje
+            while (waitForLoad)
             {
                 try
                 {
-                    InputFromFile = File.ReadAllLines(@"JarvisData\preferences.txt");
-                    NieMamPomyslu = false;
-                }
+                    fileContent = File.ReadAllLines(@"JarvisData\preferences.txt");
+                    waitForLoad = false;
                 catch
                 {
                     continue;
                 }
             }
-            return InputFromFile;
+            return fileContent;
         }
 
         private void UpdatePreferences(string data, int number)
@@ -417,12 +397,12 @@ namespace speech_recognition_test_2
             }
             File.Delete(@"JarvisData\preferences.txt");
             File.WriteAllLines(@"JarvisData\preferences.txt", InputFromFile.ToArray<string>());
-            preferencje = InputFromFile.ToArray<string>();
+            preferences = InputFromFile.ToArray<string>();
         }
 
         private void Animation_Tick(object sender, EventArgs e)
         {
-            //animacja
+            // Animation
             if (synth.State == SynthesizerState.Speaking)
             {
                 frame++;
@@ -439,16 +419,12 @@ namespace speech_recognition_test_2
                         button1.BackgroundImage = Properties.Resources.frame4;
                         break;
                 }
-
-                //MessageBox.Show("it soould work");
             }
             else
             {
                 button1.BackgroundImage = Properties.Resources.frame1;
                 frame = 0;
             }
-
-            //Console.WriteLine(synth.Volume);
         }
 
         private void Panel1_MouseMove(object sender, MouseEventArgs e)
@@ -516,7 +492,7 @@ namespace speech_recognition_test_2
 
         private void Introduction()
         {
-            Thread.CurrentThread.Name = "Main"; // zmiana aktualnego zadania na Main
+            Thread.CurrentThread.Name = "Main";
 
             Task task = new Task(() => {
                 Thread.Sleep(2000);
@@ -562,7 +538,6 @@ namespace speech_recognition_test_2
                 Invoke(new Action(() => IntroduceEnd = true));
             });
 
-            // Start osobnego zadania asynchronicznego
             task.Start();
         }
 
@@ -574,10 +549,10 @@ namespace speech_recognition_test_2
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-            if (preferencje[1] == "1")
+            if (preferences[1] == "1")
             {
                 UpdatePreferences("0", 1);
-                introduction();
+                Introduction();
             }
             if (IntroduceEnd)
             {
