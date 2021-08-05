@@ -178,27 +178,22 @@ namespace speech_recognition_test_2
                 switch (text)
             {
                 case "hello computer":
-                    listBox1.Items.Add(">> hello user");
-                    synth.SpeakAsync("hello user!");
+                    Say("hello user!");
                     break;
 
                 case "hello":
-                    listBox1.Items.Add(">> hello!");
-                    synth.SpeakAsync("hello!");
+                    Say("hello!");
                     break;
                 case "never gonna give you up":      //klasyczny rickroll 
-                    synth.SpeakAsync("never gonna let you down!");
-                    listBox1.Items.Add(">> never gonna let you down!");
+                    Say("never gonna let you down!");
                     System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                     break;
                 case "don't stop me now":           //po porsu lubię tę piosenkę, więc czemu nie?
-                    synth.SpeakAsync("i'm having such a good time");
-                    listBox1.Items.Add(">> i'm having such a good time!");
+                    Say("i'm having such a good time");
                     System.Diagnostics.Process.Start("https://youtu.be/HgzGwKwLmgM?t=37");
                     break;
                 case "stop listening":
-                    synth.SpeakAsync("Ok, just say J A R V I S if you want to wake me up");
-                    listBox1.Items.Add(">> Ok, just say J.A.R.V.I.S if you want to wake me up");
+                    Say("Ok, just say J A R V I S if you want to wake me up");
 
                     Sre.RecognizeAsyncStop();
                     SreAsleep.RecognizeAsync(RecognizeMode.Multiple);
@@ -210,8 +205,7 @@ namespace speech_recognition_test_2
                     break;
                 case "stop application":
                 case "end":
-                    listBox1.Items.Add(">> goodbye!");
-                    synth.Speak("Goodbye!");
+                    Say("Goodbye!");
                     Application.Exit();
                     break;
                 #region przeglądarki internetowe
@@ -288,8 +282,7 @@ namespace speech_recognition_test_2
                     String hot_milf = hot_milf_links[hot_milf_index];
 
                     System.Diagnostics.Process.Start(hot_milf);
-                    synth.SpeakAsync("done!");
-                    listBox1.Items.Add(">> done!");
+                    Say("done!");
                     break;
 
                 case "step sister im stuck":
@@ -304,14 +297,12 @@ namespace speech_recognition_test_2
                     String im_stuck = im_stuck_links[im_stuck_index];
 
                     System.Diagnostics.Process.Start(im_stuck);
-                    synth.SpeakAsync("done!");
-                    listBox1.Items.Add(">> done!");
+                    Say("done!");
                     break;
 
                 case "hot milfs near you":
                     string[] near_you_links = { };
-                    synth.SpeakAsync("Function not implemented.");
-                    listBox1.Items.Add(">> Function not implemented.");
+                    Say("Function not implemented.");
                     break;
 
                 case "japanese scissors":
@@ -328,13 +319,11 @@ namespace speech_recognition_test_2
                     String japanese_scissors = japanese_scissors_links[japanese_scissors_index];
 
                     System.Diagnostics.Process.Start(japanese_scissors);
-                    synth.SpeakAsync("done!");
-                    listBox1.Items.Add(">> done!");
+                    Say("done!");
                     break;
 
                 case "clear my history":
-                    synth.SpeakAsync("Function not implemented.");
-                    listBox1.Items.Add(">> Function not implemented.");
+                    Say("Function not implemented.");
                     break;
 
                 #endregion
@@ -343,27 +332,23 @@ namespace speech_recognition_test_2
 
                 case "play pause":
                     keybd_event(VK_MEDIA_PLAY_PAUSE, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
-                    synth.SpeakAsync("done!");
-                    listBox1.Items.Add(">> done!");
+                    Say("done!");
                     break;
 
                 case "next":
                     keybd_event(VK_MEDIA_NEXT_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
-                    synth.SpeakAsync("ok!");
-                    listBox1.Items.Add(">> ok!");
+                    Say("ok!");
                     break;
                 case "previous":
                     keybd_event(VK_MEDIA_PREV_TRACK, 0, KEYEVENTF_EXTENTEDKEY, IntPtr.Zero);
-                    synth.SpeakAsync("ok!");
-                    listBox1.Items.Add(">> ok!");
+                    Say("ok!");
                     break;
                 #endregion
 
                 case "reset":
                     UpdatePreferences("1", 1);
                     UpdatePreferences("chrome", 0);
-                    listBox1.Items.Add(">> Done! To see results, restart app");
-                    synth.SpeakAsync("Done! To see results, restart app");
+                    Say("Done! To see results, restart app");
                     MainTimer.Stop();
                     break;
             }
