@@ -581,6 +581,12 @@ namespace speech_recognition_test_2
             task.Start();
         }
 
+        private void Say(String text)
+        {
+            listBox1.Items.Add(">> " + text);
+            synth.Speak(text);
+        }
+
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             if (preferencje[1] == "1")
