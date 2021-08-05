@@ -380,6 +380,7 @@ namespace speech_recognition_test_2
                 {
                     fileContent = File.ReadAllLines(@"JarvisData\preferences.txt");
                     waitForLoad = false;
+                }
                 catch
                 {
                     continue;
