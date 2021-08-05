@@ -1,0 +1,15 @@
+C:\Users\arin\Desktop\jarvis\jarvis\bin\Debug\speech recognition test 2.exe.config
+C:\Users\arin\Desktop\jarvis\jarvis\bin\Debug\speech recognition test 2.exe
+C:\Users\arin\Desktop\jarvis\jarvis\bin\Debug\speech recognition test 2.pdb
+C:\Users\arin\Desktop\jarvis\jarvis\bin\Debug\Interop.WMPLib.dll
+C:\Users\arin\Desktop\jarvis\jarvis\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\jarvis.csproj.AssemblyReference.cache
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\Interop.WMPLib.dll
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\jarvis.csproj.ResolveComReference.cache
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\speech_recognition_test_2.Form1.resources
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\speech_recognition_test_2.Properties.Resources.resources
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\jarvis.csproj.GenerateResource.cache
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\jarvis.csproj.CoreCompileInputs.cache
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\speech recognition test 2.exe
+C:\Users\arin\Desktop\jarvis\jarvis\obj\Debug\speech recognition test 2.pdb
