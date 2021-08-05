@@ -360,8 +360,8 @@ namespace speech_recognition_test_2
                 #endregion
 
                 case "reset":
-                    UpDatePreferences("1", 1);
-                    UpDatePreferences("chrome", 0);
+                    UpdatePreferences("1", 1);
+                    UpdatePreferences("chrome", 0);
                     listBox1.Items.Add(">> Done! To see results, restart app");
                     synth.SpeakAsync("Done! To see results, restart app");
                     MainTimer.Stop();
@@ -373,18 +373,18 @@ namespace speech_recognition_test_2
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Sre.RecognizeAsync(RecognizeMode.Single);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Sre.RecognizeAsyncStop();
         }
 
         //auto scroll
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
             {
@@ -466,7 +466,7 @@ namespace speech_recognition_test_2
             //Console.WriteLine(synth.Volume);
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -475,12 +475,12 @@ namespace speech_recognition_test_2
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Button2_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -524,12 +524,12 @@ namespace speech_recognition_test_2
 
         #endregion
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void Panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void introduction()
+        private void Introduction()
         {
             Thread.CurrentThread.Name = "Main"; // zmiana aktualnego zadania na Main
 
